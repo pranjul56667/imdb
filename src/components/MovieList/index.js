@@ -22,7 +22,7 @@ const MovieList = () => {
   }, [id]);
 
   return (
-    <div className='movie-list'>
+    <div className='movie-list-item'>
       <div className='movie-intro'>
         <img
           src={`https://image.tmdb.org/t/p/original${movie ? movie.backdrop_path : ''}`}

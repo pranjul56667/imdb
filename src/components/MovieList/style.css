@@ -1,4 +1,4 @@
-.movie-list {
+.movie-list-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,16 +6,7 @@
     text-align: center;
   }
   
-  /* .movie-intro img {
-    width: 100%;
-    max-width: 800px;
-  }
   
-  .movie-detail img {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-  } */
   .movie-list {
     position: relative;
   }

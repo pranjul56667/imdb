@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import MovieDescription from './MovieDescription';
-import './style.css';
+import './styles.css';
 
 const Cards = () => {
   const [movies, setMovies] = useState([]);
@@ -33,9 +33,9 @@ const Cards = () => {
           >
             <div className="movie-overlay">
               <h2 className="info-card-title">{movie.title}</h2>
-              <p className="info-card-realeaseDate">{movie.release_date}</p>
+              {/* <p className="info-card-realeaseDate">{movie.release_date}</p> */}
               <div className="rating">Rating: {movie.vote_average}</div>
-              <p className="movie-description">{movie.overview}</p>
+              {/* <p className="movie-description">{movie.overview}</p> */}
             </div>
             <img
               src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}

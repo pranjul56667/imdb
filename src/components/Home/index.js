@@ -50,7 +50,7 @@ const Home = () => {
           </Link>
         ))}
       </Carousel>
-      <Cards id="card"/>
+      <Cards/>
     </div>
   );
 };
