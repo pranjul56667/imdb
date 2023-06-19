@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity, Linking , Modal} from 'react-native';
 
 function HomeScreen({ navigation }) {
+  const [gifModalVisible, setGifModalVisible] = useState(false);
+
   const handleImageClick = () => {
-    Linking.openURL('https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg');
+    setGifModalVisible(true);
   };
 
   return (
@@ -84,9 +86,18 @@ function HomeScreen({ navigation }) {
           /> */}
         </ScrollView>
       </View>
+      <Modal visible={gifModalVisible} onRequestClose={() => setGifModalVisible(false)}>
+      <View style={{ flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
+        {/* Replace the following Image with your GIF component */}
+        <Image
+          source={require('./stories.gif')}
+          style={{ width: 200, height: 200 }}
+        />
+      </View>
+    </Modal>
 
       <ScrollView style={{ backgroundColor: 'black' }}>
-        <View></View>
+        <View> </View>
       </ScrollView>
       <View style={{ display: 'flex', flexDirection: 'row', padding: 10, justifyContent: 'space-around', backgroundColor: 'black' }}>
         <Text style={{ color: 'white', fontSize: 28 }} onPress={() => navigation.navigate('home')}>

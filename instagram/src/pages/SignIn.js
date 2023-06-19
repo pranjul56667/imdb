@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import Main from '../Main';
 
-const App = () => {
+const SignIn = () => {
   const [signedUser, setSignedUser] = useState(null);
 
   return (
@@ -23,11 +23,11 @@ const HomeScreen = ({ signedUser, setSignedUser }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Welcome to the Home Page!</Text>
-      <Button title="Logout" onPress={handleLogout} />
+    < >
+      {/* <Text style={styles.heading}>Welcome to the Home Page!</Text>
+      <Button title="Logout" onPress={handleLogout} /> */}
       <Main />
-    </View>
+    </>
   );
 };
 
@@ -88,4 +88,4 @@ const styles = {
   },
 };
 
-export default App;
+export default SignIn;
