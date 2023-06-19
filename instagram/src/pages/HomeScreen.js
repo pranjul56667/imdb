@@ -1,7 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity, Linking } from 'react-native';
 
 function HomeScreen({ navigation }) {
+  const handleImageClick = () => {
+    Linking.openURL('https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg');
+  };
+
   return (
     <>
       <View style={{ backgroundColor: 'black' }}>
@@ -48,34 +52,36 @@ function HomeScreen({ navigation }) {
             source={require('./icon.png')}
             style={{ width: 75, height: 75, backgroundColor: 'red', borderRadius: 37.5 }}
           />
-          <Image
-            source={require('../../assets/favicon.png')}
-            style={{ width: 75, height: 75, backgroundColor: 'violet', borderRadius: 37.5 }}
-          />
-          <Image
-            source={require('../../assets/favicon.png')}
+          <TouchableOpacity onPress={handleImageClick}>
+            <Image
+              source={require('../pages/profile.jpeg')}
+              style={{ width: 75, height: 75, backgroundColor: 'violet', borderRadius: 37.5 }}
+            />
+          </TouchableOpacity>
+          {/* <Image
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'green', borderRadius: 37.5 }}
           />
           <Image
-            source={require('../../assets/favicon.png')}
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75,backgroundColor: 'yellow', borderRadius: 37.5 }}
           />
           <Image
-            source={require('../../assets/favicon.png')}
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'orange', borderRadius: 37.5 }}
           />
           <Image
-            source={require('../../assets/favicon.png')}
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'crimson', borderRadius: 37.5 }}
           />
           <Image
-            source={require('../../assets/favicon.png')}
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'blue', borderRadius: 37.5 }}
           />
           <Image
-            source={require('../../assets/favicon.png')}
+            source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'whitesmoke', borderRadius: 37.5 }}
-          />
+          /> */}
         </ScrollView>
       </View>
 

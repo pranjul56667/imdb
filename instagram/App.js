@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Main from './src/Main'
+import SignIn from './src/pages/SignIn'
 
 function App() {
   return (
-    <Main/>
+    <SignIn/>
   );
 }
 
