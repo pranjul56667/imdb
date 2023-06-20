@@ -3,13 +3,16 @@ import { View, Text, TextInput, Button } from 'react-native';
 import Main from '../Main';
 
 const SignIn = () => {
+  // State for tracking the signed-in user
   const [signedUser, setSignedUser] = useState(null);
 
   return (
     <View style={{ flex: 1 }}>
       {signedUser ? (
+        // If user is signed in, render the HomeScreen component
         <HomeScreen signedUser={signedUser} setSignedUser={setSignedUser} />
       ) : (
+        // If user is not signed in, render the Signin component
         <Signin signedUser={signedUser} setSignedUser={setSignedUser} />
       )}
     </View>
@@ -18,12 +21,14 @@ const SignIn = () => {
 
 const HomeScreen = ({ signedUser, setSignedUser }) => {
   const handleLogout = () => {
+    // Clear the signed-in user and log the user out
     setSignedUser(null);
     console.log('signed out');
   };
 
   return (
-    < >
+    <>
+      {/* Welcome message and logout button */}
       {/* <Text style={styles.heading}>Welcome to the Home Page!</Text>
       <Button title="Logout" onPress={handleLogout} /> */}
       <Main />
@@ -32,11 +37,13 @@ const HomeScreen = ({ signedUser, setSignedUser }) => {
 };
 
 const Signin = ({ signedUser, setSignedUser }) => {
+  // State for storing the entered username and password
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignin = () => {
     if (username === 'prince pranjul' && password === 'precom') {
+      // If username and password match, set the signed-in user
       setSignedUser(username);
       console.log('signed in success');
     } else {
@@ -46,6 +53,7 @@ const Signin = ({ signedUser, setSignedUser }) => {
 
   return (
     <View style={styles.container}>
+      {/* Sign-in form */}
       <Text style={styles.heading}>Enter Your Details</Text>
       <View style={styles.inputContainer}>
         <TextInput

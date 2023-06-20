@@ -1,16 +1,21 @@
-import React from 'react';
-import { View, Text, ScrollView, Image, TouchableOpacity, Linking , Modal} from 'react-native';
+import React, { useState } from 'react';
+
+import { View, Text, ScrollView, Image, TouchableOpacity, Linking, Modal } from 'react-native';
 
 function HomeScreen({ navigation }) {
+  // Define state for the modal visibility
   const [gifModalVisible, setGifModalVisible] = useState(false);
 
+  // Function to handle image click and show the modal
   const handleImageClick = () => {
     setGifModalVisible(true);
   };
 
   return (
     <>
+      // Main container view
       <View style={{ backgroundColor: 'black' }}>
+        // Header
         <View
           style={{
             display: 'flex',
@@ -20,17 +25,21 @@ function HomeScreen({ navigation }) {
             margin: 10,
           }}
         >
+          // Instagram logo
           <Image
             source={{
               uri: 'https://www.edigitalagency.com.au/wp-content/uploads/instagram-logo-white-text-black-background.png',
             }}
             style={{ width: 180, height: 50 }}
           />
+          // Heart icon and notification count
           <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
             <Text onPress={() => navigation.navigate('notification')}>
+              // Notification count badge
               <Text style={{ color: 'white', backgroundColor: 'crimson', width: 25, height: 20, borderRadius: 12, position: 'absolute', left: 15, bottom: 28 }}>
                 +11
               </Text>
+              // Heart icon
               <Image
                 source={{
                   uri: 'https://freepngimg.com/thumb/instagram/1-2-instagram-heart-transparent.png',
@@ -38,6 +47,7 @@ function HomeScreen({ navigation }) {
                 style={{ width: 30, height: 30 }}
               />
             </Text>
+            // Message icon
             <Text onPress={() => navigation.navigate('message')}>
               <Image
                 source={{
@@ -49,17 +59,22 @@ function HomeScreen({ navigation }) {
           </View>
         </View>
 
+        // Horizontal scroll view for images
         <ScrollView style={{ margin: 15 }} horizontal={true}>
+          // First image
           <Image
-            source={require('./icon.png')}
+            source={require('./favicon.png')}
             style={{ width: 75, height: 75, backgroundColor: 'red', borderRadius: 37.5 }}
           />
+          // Second image with click handler
           <TouchableOpacity onPress={handleImageClick}>
             <Image
               source={require('../pages/profile.jpeg')}
               style={{ width: 75, height: 75, backgroundColor: 'violet', borderRadius: 37.5 }}
             />
           </TouchableOpacity>
+
+          {/* Remaining images */}
           {/* <Image
             source={require('../pages/profile.jpeg')}
             style={{ width: 75, height: 75, backgroundColor: 'green', borderRadius: 37.5 }}
@@ -86,16 +101,19 @@ function HomeScreen({ navigation }) {
           /> */}
         </ScrollView>
       </View>
-      <Modal visible={gifModalVisible} onRequestClose={() => setGifModalVisible(false)}>
-      <View style={{ flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
-        {/* Replace the following Image with your GIF component */}
-        <Image
-          source={require('./stories.gif')}
-          style={{ width: 200, height: 200 }}
-        />
-      </View>
-    </Modal>
 
+      // Modal for displaying GIF
+      <Modal visible={gifModalVisible} onRequestClose={() => setGifModalVisible(false)}>
+        <View style={{ flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
+          {/* Replace the following Image with your GIF component */}
+          <Image
+            source={require('./stories.gif')}
+            style={{ width: 200, height: 200 }}
+          />
+        </View>
+      </Modal>
+
+      // Bottom section
       <ScrollView style={{ backgroundColor: 'black' }}>
         <View> </View>
       </ScrollView>
